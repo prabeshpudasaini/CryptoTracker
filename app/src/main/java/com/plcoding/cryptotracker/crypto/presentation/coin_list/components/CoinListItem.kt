@@ -35,9 +35,9 @@ fun CoinListItem(
     onCLick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val contentColor = if(isSystemInDarkTheme()){
+    val contentColor = if (isSystemInDarkTheme()) {
         Color.White
-    }else{
+    } else {
         Color.Black
     }
     Row(
@@ -60,7 +60,7 @@ fun CoinListItem(
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = contentColor,
-                )
+            )
             Text(
                 text = coinUi.name,
                 fontSize = 14.sp,

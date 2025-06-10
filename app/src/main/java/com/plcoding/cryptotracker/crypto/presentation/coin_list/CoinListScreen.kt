@@ -13,7 +13,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.plcoding.cryptotracker.crypto.presentation.coin_list.components.CoinListItem
@@ -23,33 +22,35 @@ import com.plcoding.cryptotracker.ui.theme.CryptoTrackerTheme
 @Composable
 fun CoinListScreen(
     state: CoinListState,
-    modifier: Modifier = Modifier)
-{
-    if(state.isLoading){
+    modifier: Modifier = Modifier
+) {
+    if (state.isLoading) {
         Box(
             modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
-        ){
+        ) {
             CircularProgressIndicator()
         }
-    }else{
-        LazyColumn(modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(8.dp))
-        {items(state.coins) {
-            coinUi ->
-            CoinListItem(
-                coinUi = coinUi,
-                onCLick = {},
-                modifier = Modifier.fillMaxWidth()
-            )
-            HorizontalDivider()
-        }
+    } else {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        )
+        {
+            items(state.coins) { coinUi ->
+                CoinListItem(
+                    coinUi = coinUi,
+                    onCLick = {},
+                    modifier = Modifier.fillMaxWidth()
+                )
+                HorizontalDivider()
+            }
 
 
         }
 
     }
-    
+
 }
 
 @PreviewLightDark
@@ -62,7 +63,7 @@ private fun CoinListScreenPreview() {
                     previewCoin.copy(id = it.toString())
                 }
             ),
-        modifier = Modifier.background(MaterialTheme.colorScheme.background)
+            modifier = Modifier.background(MaterialTheme.colorScheme.background)
         )
     }
 }
