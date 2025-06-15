@@ -24,6 +24,8 @@ fun CoinListScreen(
     state: CoinListState,
     modifier: Modifier = Modifier
 ) {
+
+
     if (state.isLoading) {
         Box(
             modifier = modifier.fillMaxSize(),
